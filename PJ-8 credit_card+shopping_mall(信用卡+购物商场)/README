@@ -1,0 +1,34 @@
+程序结构：
+
+PJ-8 credit_card+shopping_mall:
+
+|—— README                     #使用前帮助文档
+|—— credit_card                #信用卡主程序目录
+|   |—— __init__.py
+|   |—— bin                    #信用卡执行文件目录
+|   |   |—— __init__.py
+|   |   |—— card.py            #信用卡执行文件
+|   |   |—— manager.py         #信用卡管理程序
+|   |—— conf                   #配置文件目录
+|   |   |—— __init__.py
+|   |   |—— setting.py         #配置程序
+|   |—— lib                    #相关逻辑程序目录
+|   |   |—— __init__.py
+|   |   |—— accounts.py        #账户数据，用于从文件加载和存储
+|   |   |—— auth.py            #用户认证程序
+|   |   |—— db.py              #数据库连接引擎
+|   |   |—— logger.py          #日志
+|   |   |—— main.py            #主逻辑交互程序
+|   |   |—— transaction.py     #透支/还款/取款等账户金额相关操作
+|   |—— db                     #用户数存储
+|   |   |—— __init__.py
+|   |   |—— example.py         #生成初始账户数据
+|   |   |—— accounts           #存所有用户的账户数据，一个用户一个文件
+|   |       |—— 1.json         #一个账户示例文件
+|   |—— log                    #日志目录
+|   |   |—— __init__.py
+|   |   |—— access.log         #账户访问和操作等日志
+|   |   |—— transaction.log    #所有交易日志
+|—— shopping                   #商城目录
+|   |—— __init__.py
+|   |—— shopping.py            #商城程序

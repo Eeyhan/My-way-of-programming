@@ -1,0 +1,5 @@
+2018-01-21 20:21:53,140 - transaction - INFO - account:62285589--transaction:repay--amount:400.0--interest:0.0
+2018-01-21 20:25:43,037 - transaction - INFO - account:62285589--transaction:draw--amount:400.0--interest:20.0
+2018-01-21 20:27:08,946 - transaction - INFO - account:62285589--transaction:draw--amount:400.0--interest:20.0
+2018-01-21 20:31:55,979 - transaction - INFO - account:62285589 - transaction:transfer - amount:100.0 - interest:5.0
+2018-01-21 20:54:08,411 - transaction - INFO - account:62285580 - transaction:repay - amount:200.0 - interest:0.0

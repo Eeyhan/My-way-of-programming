@@ -5,7 +5,7 @@
 
 #下面的json转换数据你可以继续使用eval,但是遇到编码问题等等的，eval就有些局限了
 import json
-with open('官方登录.txt') as f1,open('QQ登录.txt') as f2,open('微信登录.txt') as f3:
+with open('官方账户.txt') as f1,open('QQ账户.txt') as f2,open('微信账户.txt') as f3:
     gf_data = json.load(f1)
     qq_data = json.load(f2)
     wx_data = json.load(f3)
@@ -47,7 +47,7 @@ def login(auth_type):
                         return '您输入的账户或密码有误'
                 else:
                     print('不存在的认证类型')
-            else:
+            else: #已登录状态
                 return func()
         return inner
     return wrapper

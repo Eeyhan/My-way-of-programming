@@ -15,12 +15,12 @@ shop_dict = {'1':{'iphoneX':6000},'2':{'MAC':9000},'3':{'coffee':50},'4':{'pytho
 myshop_cart = [] #购物车
 
 print('欢迎来到XXX购物平台！\n您看上哪个商品，输入商品对应的【id】即可购买，如果购物结束输入【quit】即可退出')
-for i,m in shop_dict.items():
-    for j,k in m.items():
-        print('商品id：%s\t商品名：%s\t\t商品单价：%s'%(i,j,k))
 
 salary = int(input('请输入您的透支额度：'))
 temp = salary #作为缓存总额，用于后面总共消费多少作计算
+for i,m in shop_dict.items():
+    for j,k in m.items():
+        print('商品id：%s\t商品名：%s\t\t商品单价：%s'%(i,j,k))
 
 while True:
     for i,m in shop_dict.items():
@@ -70,20 +70,20 @@ while True:
 #     for i,j in enumerate(product_list,1):
 #         print('商品id：%s\t商品及价格：%s'%(i,j))
 #
-#     shopping = input('请输入商品id（退出请输入“quit”）>>>:')
-#     if shopping.isdigit():
-#         shopping=int(shopping)
-#         if shopping > 0 and shopping <= len(product_list):
-#             if salary < product_list[shopping-1][1]:
+#     mall = input('请输入商品id（退出请输入“quit”）>>>:')
+#     if mall.isdigit():
+#         mall=int(mall)
+#         if mall > 0 and mall <= len(product_list):
+#             if salary < product_list[mall-1][1]:
 #                 print('您的余额不足')
 #             else:
-#                 salary -= product_list[shopping-1][1]
-#                 myshop_cart1.append(product_list[shopping-1][0]) #把商品名添加至购物车
-#                 print('您已购买商品【%s】，剩余余额：%s\n'%(product_list[shopping-1][0],salary))
+#                 salary -= product_list[mall-1][1]
+#                 myshop_cart1.append(product_list[mall-1][0]) #把商品名添加至购物车
+#                 print('您已购买商品【%s】，剩余余额：%s\n'%(product_list[mall-1][0],salary))
 #                 if not salary:
 #                     print('您的余额为0，不能再购买任何东西，程序已退出，欢迎下次光临')
 #                     break
-#     elif shopping == 'quit':
+#     elif mall == 'quit':
 #
 #         templist = copy.deepcopy(myshop_cart1)
 #         # print(templist)
@@ -101,4 +101,4 @@ while True:
 #         print('欢迎下次光临！')
 #         break
 #     else:
-#         print('您的输入有误，请查看是否有id为【%s】的商品'%shopping)
+#         print('您的输入有误，请查看是否有id为【%s】的商品'%mall)

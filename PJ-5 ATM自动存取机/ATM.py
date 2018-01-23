@@ -54,8 +54,10 @@ else:
                             #账户主体操作
                             if cont == '1': #取款
                                 withdraw_money = int(input('请输入取款金额（最低一百）：')) #ATM存取都是100的整数，直接用int类型
-                                if withdraw_money %100 == 0:
-                                    print('正在点钞，请稍后。。。')
+                                while withdraw_money %100 != 0:
+                                    print('输入金额不是100的整数倍，请重新输入')
+                                    withdraw_money = int(input('请输入取款金额（最低一百）：'))
+                                else:
                                     if withdraw_money > database[username]['balance']:
                                         print('操作失败，您输入的金额大于您的余额总数')
                                     else:
@@ -65,31 +67,38 @@ else:
                                         with open('log.txt','a') as f:  #写入日志
                                             f.write(str(time.strftime("%Y %b %d %X"))+'\t卡号为 %s 的用户 %s 取出金额：%d\n'%(user_id,username,withdraw_money))
                                         temp += str(time.strftime("%Y %b %d %X"))+'\t取款金额：%d\n'%withdraw_money  #记录凭条
-                                else:
-                                    print('输入金额不是100的整数倍，请重新输入')
+
                             elif cont == '2': #存款
-                                save_money = int(input('请将钞票叠好，并整齐放入存钞口(输入存款金额)：')) #ATM存取款都是100的整数，直接用int类型
-                                print('正在点钞，请稍后。。。')
-                                time.sleep(3)
-                                print('%s 元已成功存入账户 %s\t账户名 %s'%(save_money,user_id,username))
-                                database[username]['balance'] += save_money
-                                with open('log.txt','a') as f:  #写入日志
-                                    f.write(str(time.strftime("%Y %b %d %X"))+'\t卡号为 %s 的用户 %s  已存入金额 %d\n'%(user_id,username,save_money))
-                                temp += str(time.strftime("%Y %b %d %X"))+'\t存入金额：%d\n'%save_money
+                                save_money = int(input('请将钞票叠好，并整齐放入存钞口(输入存款金额,最低一百)：')) #ATM存取款都是100的整数，直接用int类型
+                                while save_money %100 != 0:
+                                    print('输入金额不是100的整数倍，请重新输入')
+                                    save_money = int(input('请将钞票叠好，并整齐放入存钞口(输入存款金额,最低一百)：'))
+                                else:
+                                    print('交易正在处理，请稍后。。。')
+                                    time.sleep(3)
+                                    print('%s 元已成功存入账户 %s\t账户名 %s'%(save_money,user_id,username))
+                                    database[username]['balance'] += save_money
+                                    with open('log.txt','a') as f:  #写入日志
+                                        f.write(str(time.strftime("%Y %b %d %X"))+'\t卡号为 %s 的用户 %s  已存入金额 %d\n'%(user_id,username,save_money))
+                                    temp += str(time.strftime("%Y %b %d %X"))+'\t存入金额：%d\n'%save_money
 
                             elif cont == '3': #转账
                                 transfer_id = input('请输入转账帐户卡号：')
                                 transfer_user = input('请输入帐户名：')
                                 if transfer_id == database[transfer_user]['ID']:
                                     transfer_money = float(input('请输入转账金额：'))
-                                    print('正在转账，请稍后。。。')
-                                    time.sleep(3)
-                                    database[username]['balance'] -= transfer_money
-                                    database[transfer_user]['balance'] += transfer_money
-                                    with open('log.txt','a') as f:  #写入日志
-                                        f.write(str(time.strftime("%Y %b %d %X"))+'\t卡号为 %s 的用户 %s 转出金额为 %d 给卡号为 %s 的用户 %s\n'%(user_id,username,transfer_money,transfer_id,transfer_user))
-                                    print('成功转账 %s 给卡号为 %s 的用户 %s'%(transfer_money,transfer_id,transfer_user))
-                                    temp += time.strftime("%Y %b %d %X")+'\t向卡号为 %s 的用户 %s 转账 %d \n'%(transfer_id,transfer_user,transfer_money)
+
+                                    if transfer_money > database[username]['balance']:
+                                        print('操作失败，您输入的金额大于您的余额总数')
+                                    else:
+                                        print('交易正在处理，请稍后。。。')
+                                        time.sleep(3)
+                                        database[username]['balance'] -= transfer_money
+                                        database[transfer_user]['balance'] += transfer_money
+                                        with open('log.txt','a') as f:  #写入日志
+                                            f.write(str(time.strftime("%Y %b %d %X"))+'\t卡号为 %s 的用户 %s 转出金额为 %d 给卡号为 %s 的用户 %s\n'%(user_id,username,transfer_money,transfer_id,transfer_user))
+                                        print('成功转账 %s 给卡号为 %s 的用户 %s'%(transfer_money,transfer_id,transfer_user))
+                                        temp += time.strftime("%Y %b %d %X")+'\t向卡号为 %s 的用户 %s 转账 %d \n'%(transfer_id,transfer_user,transfer_money)
                                 else:
                                     print('输入的卡号为 %s 的用户名为 %s 账户有误，原因可能账户信息不匹配或被冻结'%(transfer_id,transfer_user))
                             elif cont == '4': #查询

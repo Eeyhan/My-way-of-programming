@@ -14,21 +14,23 @@ from card.conf import settings
 from card.libs import db
 
 
-# 载入商城账号信息，商城和信用卡并不是等同的
-user_path = '%s/mall/yang.json'%base_dir
-with open(user_path) as f:
-    userdata = json.load(f)
+# # 载入商城账号信息，商城和信用卡并不是等同的
+# user_path = '%s/mall/yang.json'%base_dir
+# with open(user_path) as f:
+#     userdata = json.load(f)
 
-# 读取信用卡
-path = db.db(settings.DATABASEINFO)
-account_path = '%s/%s.json'%(path,userdata['id'])
-with open(account_path) as f:
-    accountdata = json.load(f)
+# # 读取信用卡
+# path = db.db(settings.DATABASEINFO)
+# account_path = '%s/%s.json'%(path,userdata['id'])
+# with open(account_path) as f:
+#     accountdata = json.load(f)
 
-# 账户可用余额
-salary = accountdata['balance']
-#缓存总额，用于后面总共消费多少作计算
-temp = salary
+
+# # 账户可用余额
+# salary = accountdata['balance']
+# #缓存总额，用于后面总共消费多少作计算
+# temp = salary
+
 #购物车
 cart = []
 
@@ -60,19 +62,33 @@ login_status = False  #登录状态标志位
 #登录验证
 def login(func):
     def inner():
-        global login_status
+        global login_status,accountdata,salary,temp,account_path
         while not login_status:
             print('\033[32;1m请登录\033[0m')
             username = input('\033[32;1musername:\033[0m')
             password = input('\033[32;1mpassword:\033[0m')
-            while username not in userdata or password != userdata[username]:
-                print('\033[31;1m用户名或密码错误,请重新登录\033[0m')
-                username = input('\033[32;1musername:\033[0m')
-                password = input('\033[32;1mpassword:\033[0m')
+            user_path = '%s/mall/%s.json'%(base_dir,username)
+            if os.path.isfile(user_path):
+                with open(user_path) as f:
+                    userdata = json.load(f)
+                while password != userdata[username]: # 购物商场可以无限次登录
+                    print('\033[31;1m用户名或密码错误,请重新登录\033[0m')
+                    password = input('\033[32;1mpassword:\033[0m')
+                else:
+                    print('\033[34;1m登录成功!\n')
+                    login_status = True
+                    path = db.db(settings.DATABASEINFO)
+                    # 载入信用卡信息
+                    account_path = '%s/%s.json'%(path,userdata['id'])
+                    with open(account_path) as f:
+                        accountdata = json.load(f)
+                    # 账户可用余额
+                    salary = accountdata['balance']
+                    #缓存总额，用于后面总共消费多少作计算
+                    temp = salary
+                    return func()
             else:
-                print('\033[34;1m登录成功!\n')
-                login_status = True
-                return func()
+                print('\033[31;1m不存在的用户名或者用户文件\033[0m')
         else: #已登录状态
             return func()
     return inner
@@ -111,7 +127,6 @@ def consume():
 
 # 更新用户数据
 def dump():
-    global account_path,accountdata
     accountdata['balance'] = salary
     with open(account_path,'w') as f:
         json.dump(accountdata,f)
@@ -143,7 +158,7 @@ def shopping_cart(string):
                     else:
                         salary -= gprice
                         print('\033[46;1m您已购买商品 %s -- 单价 %.2f，剩余余额：%.2f\033[0m\n'%(gname,gprice,salary))
-                        cart.append('\033[32;1m商品:%s 单价:%.2f\033[0m'%(gname,gprice))
+                        cart.append('商品:%s 单价:%.2f'%(gname,gprice))
                         if not salary: #购买后再次检测信用卡剩余额度
                             print('\033[31;1m您的余额为0，不能再购买任何东西，程序已退出，欢迎下次光临\033[0m')
                             break

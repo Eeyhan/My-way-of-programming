@@ -108,7 +108,7 @@ def draw(data):
     print('''---------- user %s bill ----------
     creadit:    %s
     balance:    %s
-    '''%(data['id'],data['credit'],data['balance']))
+    '''%(corrent_accdata['id'],corrent_accdata['credit'],corrent_accdata['balance']))
 
     back_flag = False
     while  not back_flag:
@@ -118,13 +118,11 @@ def draw(data):
             back_flag = True
 
         if len(draw_amount) > 0 and draw_amount.isdigit():
-            new_data = transaction.change(data,draw_amount,transaction_log,'draw')
+            new_data = transaction.change(corrent_accdata,draw_amount,transaction_log,'draw')
             if new_data:
                 print('\033[46;1mnew balance:[%s]\033[0m'%new_data['balance'])
         else:
             print('\033[31;1m[%s] not integer,only support integer\033[0m'%draw_amount)
-
-
 
 # 转账
 def transfer(data):
@@ -138,7 +136,7 @@ def transfer(data):
     print('''---------- user %s bill ----------
     creadit:    %s
     balance:    %s
-    '''%(data['id'],data['credit'],data['balance']))
+    '''%(corrent_accdata['id'],corrent_accdata['credit'],corrent_accdata['balance']))
 
     back_flag = False
     while  not back_flag:
@@ -151,7 +149,7 @@ def transfer(data):
             transfer_user_id = input("\033[36;1mplease enter user id :\033[0m").strip()
             try:
                 transfer_userdata = accounts.corrent_accdata(transfer_user_id)
-                new_data = transaction.change(data,transfer_amount,transaction_log,'transfer')
+                new_data = transaction.change(corrent_accdata,transfer_amount,transaction_log,'transfer')
                 if new_data:
                     transfer_userdata['balance'] += float(transfer_amount)
                     accounts.dump_accdata(transfer_userdata)

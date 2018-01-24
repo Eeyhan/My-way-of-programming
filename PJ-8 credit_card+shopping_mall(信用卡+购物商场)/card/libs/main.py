@@ -76,7 +76,7 @@ def repay(data):
     print('''---------- user %s bill ----------
     creadit:    %s
     balance:    %s
-    '''%(data['id'],data['credit'],data['balance']))
+    '''%(corrent_accdata['id'],corrent_accdata['credit'],corrent_accdata['balance']))
 
     back_flag = False
     while  not back_flag:
@@ -87,7 +87,7 @@ def repay(data):
 
         print() #此处的打印空是为了换行美观，否则日志输出会和repay_amount在同一行
         if len(repay_amount) > 0 and repay_amount.isdigit():
-            new_data = transaction.change(data,repay_amount,transaction_log,'repay')
+            new_data = transaction.change(corrent_accdata,repay_amount,transaction_log,'repay')
             if new_data:
                 print('\033[46;1mnew balance:[%s]\033[0m'%new_data['balance'])
         else:

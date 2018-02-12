@@ -48,9 +48,9 @@ def show_course():
 
 def show_courseteacher():
     print('-------- 查看教师授课范围 --------')
-    Coursetoteacher_list = Coursetoteacher.get_all_list()
-    for i in Coursetoteacher_list:
-        print(i)
+    coursetoteacher_list = Coursetoteacher.get_all_list()
+    for k in coursetoteacher_list:
+        print(k)
 
 def show_classes():
     print('-------- 查看班级 --------')

@@ -91,7 +91,6 @@ def create_course_teacher():
         print(k,v)
     teac_id = int(input('请选择授课老师（输入序号即可）：').strip())
     teacherobj = teacher_list[teac_id - 1]
-
     obj = Coursetoteacher(courseobj.id,teacherobj.id)
     obj.save()
 

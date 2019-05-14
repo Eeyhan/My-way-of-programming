@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户授权</title>
+    <script src="{% static "js/jquery.min.js" %}"></script>
+    <script src="{% static "js/jquery.qrcode.min.js" %}"></script>
+    <script src="{% static "js/qrcode.js" %}"></script>
+</head>
+<body>
+<input onclick="userauth() " type="button" value="关注我们有惊喜哦">
+<div>
+    <img style="height: 100px;width: 100px" src="{% static 'img/wx.jpg' %}">
+</div>
+<div id="qrcode" style="width: 250px;height: 250px;background-color: white;margin: 100px auto;"></div>
+<script type="text/javascript">
+    function userauth() {
+        $.ajax({
+            url: '/bind_qrcode/',
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                $('#qrcode').empty().qrcode({text: data.data});
+            }
+        });
+    }
+</script>
+</body>
+</html>

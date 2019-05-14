@@ -1,0 +1,921 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font: 12px Tahoma,Verdana,Arial,Helvetica,"\5b8b\4f53",sans-serif;
+    background: #cdcdcd;
+}
+li{
+    list-style-type: none;
+}
+a{text-decoration: none}
+
+/*清除浮动*/
+.clearfix{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/*导航栏*/
+.nav-bar{
+    width: 100%;
+    background: #2459a2;
+    height: 44px;
+    position: fixed;
+    z-index: 999999;
+}
+
+
+.nav-bar a{
+    color: #e3dfdf;
+}
+
+
+/*导航栏内部*/
+.nav{
+    position: relative;
+    margin: 0 auto;
+    width: 1016px;
+    height: 44px;
+}
+
+/*标志*/
+.logo{
+    width: 121px;
+    height: 23px;
+    float: left;
+    margin-top: 11px;
+}
+
+/*导航栏选项*/
+.option{
+    float: left;
+    line-height: 44px;
+    font-size: 12px;
+    margin-left: 1%;
+}
+.option ul{
+    width: 480px;
+}
+
+.option li:hover{
+    background: #708fe6;
+
+}
+
+/*被选中的选项*/
+.option li.active{
+    background: #1f4b89;
+
+}
+
+.option li.active a{
+    color: #fff;
+}
+
+.option li:hover a{
+    color: #fff;
+}
+/*默认未被选中的导航栏选项*/
+.option li{
+    float: left;
+    /*margin-left: 6%;*/
+    padding: 0px 15px;
+}
+.option li a{
+    display: block;
+}
+
+/*搜索框*/
+.search{
+    float: right;
+}
+
+
+.search input[type='text']{
+    height: 30px;
+    margin-top: 7px;
+    width: 100px;
+    background: #eceaea;
+    border: none;
+    line-height: 30px;
+}
+
+
+.search a{
+    background: #f4f4f4;
+    display: inline-block;
+    height: 28px;
+    line-height: 30px;
+    border: 1px solid #e0e0e0;
+    float: right;
+    margin-top: 7px;
+}
+
+.search span{
+    background-image: url("https://cloud.chouti.com/images/icon.png");
+    width: 20px;
+    background-position: 0 -197px;
+    display: block;
+    height: 12px;
+    margin-left: 11px;
+    margin-top: 9px;
+}
+
+/*用户选项*/
+.user{
+    float: right;
+    height: 44px;
+    line-height: 44px;
+    width: 141px;
+}
+
+.user a{
+    font-size: 12px;
+    padding: 0 22px;
+    display: inline-block;
+    color: #fff;
+}
+
+/*非导航内容*/
+.main{
+    padding-top: 44px;
+    position: relative;
+
+}
+
+/*内容*/
+.content{
+    background: #fff;
+    overflow: hidden;
+}
+.content-left{
+    width: 68%;
+    float: left;
+    margin-top: 3px;
+    margin-right: 2%;
+}
+
+.content-right{
+    width: 30%;
+    float: left;
+}
+
+
+/*头部table选项卡*/
+.content-tab{
+    float: left;
+    width: 270px;
+}
+
+.content-tab li{
+    float: left;
+    margin-right: 10%;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.content-tab li a{
+    color: #369;
+}
+.content-tab li.active{
+    width: 53px;
+    border: 1px solid #cdcdcd;
+    border-radius: 12px;
+    background: #f0f4f8;
+}
+
+.content-tab li.active a{
+    color: black;
+}
+
+/*内容按钮*/
+.content-btn{
+    float: left;
+    width: 160px;
+    line-height: 20px;
+    margin-left: 10%;
+
+}
+
+.content-btn li a{
+    color: #390;
+}
+.content-btn li{
+    float: left;
+    margin-right: 10%;
+ }
+
+.content-btn li.active a{
+    color: #a8a6a6;
+}
+
+
+
+
+/*内容的头部*/
+.top{
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/*发布按钮*/
+.realse{
+    width: 22%;
+    background: #33d51f;
+    display: inline-block;
+    text-align: center;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 2px;
+    margin-top: -5px;
+    float: right;
+}
+
+.realse a{
+    width: 90%;
+    display: inline-block;
+    text-align: center;
+    line-height: 34px;
+    color: #fff;
+
+}
+
+/*通用盒子模型*/
+.box{
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px 28px;
+}
+
+
+/*内容顶部的实时新消息*/
+.news{
+    width: 650px;
+    background: #ffefd3;
+    height: 25px;
+    margin-top: 7px;
+    border-radius: 2px;
+    border: 1px solid #fadf58;
+    text-align: center;
+    line-height: 25px;
+    color: #b49b1d;
+}
+
+/*内容容器*/
+.content-item{
+    margin-top: 2%;
+}
+
+
+/*内容数组*/
+.item{
+    font-weight: bold;
+    font-size: 14px;
+    clear: both;
+    padding-top: 10px;
+    border-bottom: 1px solid #dce7f4;
+    overflow: hidden;
+    position: relative;
+    margin-top: 1%;
+}
+
+/*被鼠标hover上的属性*/
+.item:hover .news-btn a{
+    display: inline-block;
+}
+.item a{
+    color: #369;
+}
+
+.item a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*新闻描述*/
+.news-desc{
+    width: 80%;
+    float: left;
+    overflow: hidden;
+}
+
+
+/*新闻配图*/
+.news-pic{
+    float: right;
+    width: 78px;
+}
+
+.news-pic img{
+    width: 70px;
+    height: 70px;
+    border: 3px solid #dbd8d8;
+}
+
+/*新闻的底部按钮*/
+.under-btn{
+    float: left;
+    width: 100%;
+}
+.under-btn li{
+    float: left;
+    margin-right: 5%;
+}
+
+
+/*内容来源*/
+.content-source{
+    color: #b4b4b4;
+    font-size: 7px;
+}
+
+/*内容分类*/
+.news-desc .kind{
+    color: #b4b4b4;
+    font-size: 12px;
+    margin-left: 2%;
+
+}
+.news-desc .kind:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/*新闻内容按钮*/
+.news-btn{
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+
+.news-btn a{
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.news-btn a span{
+    font-size: 12px;
+    font-weight: 400;
+}
+.news-btn a span img{
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    padding: 1px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.news-btn b{
+    margin-left: 4px;
+    color: #99aecb;
+}
+
+.icon{
+    background: url('https://cloud.chouti.com/images/icon_18_118.png?v=2.13') no-repeat 0 0;
+}
+
+/*点赞按钮*/
+.praise{
+    background-position: 0 -40px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+/*评论*/
+.discuss{
+
+    background-position: 0 -99px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.discuss-detail{
+    display: none;
+    width: 98%;
+    background: #f6f6f6;
+    padding: 8px;
+    border-radius: 4px;
+    position: relative;
+}
+
+/*评论关闭按钮*/
+.discuss-detail>span.close{
+    position: absolute;
+    right: 7px;
+    top: 2px;
+    width: 13px;
+    font-size: 16px;
+    color: #369;
+    cursor: pointer;
+}
+
+
+.discuss-detail>a.close{
+    position: absolute;
+    right: 7px;
+    bottom: 6px;
+    width: 33px;
+    font-size: 16px;
+    color: #369;
+    text-decoration: none;
+}
+
+/*已存在的评论*/
+.exist-discuss>p{
+    border-bottom: 1px dashed #bcbcbc;
+    padding: 8px 0px;
+}
+.exist-discuss>p>span{
+    font-size: 12px;
+    color: #949eac;
+    margin-left: 1%;
+}
+
+.exist-discuss>ul{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.exist-discuss>ul>li{
+    border-bottom: 1px dashed #bcbcbc;
+    margin-bottom: 2%;
+    padding-bottom: 8px;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.exist-discuss>ul>li span{
+    display: inline-block;
+    text-indent: 2%;
+}
+
+.exist-discuss li:hover .commit{
+    display: block;
+}
+
+/*添加的评论*/
+.commit{
+    float: right;
+    width: 121px;
+    color: #336699;
+    margin-top: 5px;
+    display: none;
+}
+
+.commit span{
+    width: 45px;
+
+}
+
+/*待评论盒子*/
+.discussing{
+    margin-bottom: 4%;
+}
+
+/*待评论的输入框*/
+.discussing form input[type='text']{
+    text-indent: 4px;
+    width: 88%;
+    margin-left: 2%;
+    height: 33px;
+    border-radius: 4px;
+    border: 2px solid #68f2f2;
+    box-shadow: 0px 0px 6px 2px #dfdcdc;
+    background: #fcffff;
+}
+
+/*待评论的表单信息*/
+.discussing form span{
+    text-align: center;
+    background: #4297ec;
+    color: #fff;
+    width: 51px;
+    display: inline-block;
+    height: 32px;
+    border: 1px solid #caf5fc;
+    line-height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: -3px;
+}
+.exist-discuss img{
+    vertical-align: text-bottom;
+    width: 15px;
+    height: 15px;
+    padding: 1px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+
+/*收藏*/
+.like{
+    background-position: 0 -160px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+
+/*被鼠标hover的内容按钮*/
+.news-btn a:hover b{
+    color: #369;
+}
+
+.news-btn a:hover .praise{
+    background-position: 0 0px;
+}
+
+.news-btn a:hover .discuss{
+    background-position: 0 -59px;
+}
+
+.news-btn a:hover .like{
+    background-position: 0 -120px;
+}
+
+.news-btn .share{
+    display: none;
+    float: right;
+}
+
+
+/*右边的顶部*/
+.top-item{
+    border-bottom: 1px dashed #566c83;
+    margin: 4% 0;
+    padding-bottom: 4%;
+}
+
+/*页面右边的热点关注数目*/
+.number{
+    background: #d9dfe8;
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 2%;
+}
+
+/*热点*/
+.focus{
+    font-size: 13px;
+    color: #477099;
+}
+
+
+.number:hover .focus:hover{
+    cursor: pointer;
+}
+
+
+/*页数*/
+.page{
+    margin: 4% auto;
+    text-align: center;
+}
+
+.page a{
+    padding: 2px;
+    display: inline-block;
+    width: 38px;
+    height: 30px;
+    background: #fbfcfc;
+    text-align: center;
+    border: 1px solid #d0d1f8;
+    line-height: 30px;
+    border-radius: 6px;
+    color: #336699;
+
+}
+
+.page a.active{
+    background: transparent;
+    border: none;
+    color: black;
+    font-weight: bold;
+
+}
+.page a.active:hover{
+    background: transparent;
+    color: black;
+}
+.page a:hover{
+    background: #369;
+    color: #fff;
+}
+
+/*底部*/
+.footer{
+    text-align: center;
+    border-top: 1px solid #cdcdcd;
+    padding-top: 2%;
+}
+
+.footer a{
+    width: 100px;
+    display: inline-block;
+    border-right: 1px solid #cdcdcd;
+    margin-bottom: 2%;
+    color: #477099;
+}
+
+
+/*点击登录，注册出现的幕布*/
+#curtain{
+}
+
+#curtain .users,.newscurtain .news{
+    margin: 10% auto;
+    width: 600px;
+    height: 400px;
+    background: red;
+    position: fixed;
+    z-index: 2147483647;
+}
+
+
+/*用户操作盒子*/
+.users-box{
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.users-box #users-title,.news-share-box #news-share-title{
+    background: #e7ecf2;
+    text-indent: 5px;
+    height: 28px;
+    border-radius: 4px;
+}
+
+.news-share-box{
+    position: relative;
+}
+
+#users-title>span,#news-share-title>span{
+    line-height: 28px;
+    font-size: 16px;
+    background: #e7ecf2;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 2%;
+    border-radius: 2px;
+    color: #7383ae;
+    margin-right: 42%;
+}
+
+#users-title .close,#news-share-title .close{
+    position: absolute;
+    right: -1px;
+    top: 0px;
+    width: 30px;
+    height: 28px;
+    border: 0px solid #7135e8;
+    color: #ffffff;
+    background: #7bcbe3;
+    border-radius: 3px;
+}
+
+/*注册登录*/
+.regist,.login{
+    width: 48%;
+    float: left;
+    line-height: 48px;
+    margin-top: 2%;
+
+}
+
+.regist span,.login span{
+    width: 100px;
+    height: 38px;
+    background: #0e7cb3;
+    display: inline-block;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 38px;
+    font-size: 14px;
+    margin-top: 50%;
+}
+
+.regist span:hover,.login span:hover{
+    background: #0b82bd;
+    cursor: pointer;
+}
+
+.regist{
+    border-right: 1px solid #e8e6e6;
+
+}
+
+.regist div,.login div{
+    text-align: center;
+    width: 100%;
+}
+
+/*用户输入框*/
+input[name='username'],input[name='password']{
+    border: 1px solid #cdcdcd;
+    border-radius: 2px;
+    width: 200px;
+    text-indent: 5px;
+    height: 29px
+}
+
+#users-title input,#news-share-title input{
+    width: 30px;
+    height: 28px;
+    border: 0px solid #7135e8;
+    color: #ffffff;
+    background: #7bcbe3;
+}
+#users-title input:hover{
+    cursor: pointer;
+}
+
+
+/*发布新闻的幕布*/
+#news-curtain .tab{
+    margin-top: 4%;
+    width: 100%;
+    border-bottom: 2px solid #b9eaf8;
+    position: relative;
+    z-index: 1;
+}
+
+
+/*发布页选项卡*/
+.tab a{
+    z-index: 5;
+    display: inline-block;
+    padding: 4px;
+    width: 70px;
+    height: 34px;
+    background: #d3f4f6;
+    margin-left: 2%;
+    line-height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #369;
+    border: 2px solid #9ee2f6;
+    border-bottom: none;
+    position: relative;
+}
+
+/*被点击的选项卡*/
+.tab a.active{
+    background: transparent;
+    border-bottom: 2px solid #fff;
+}
+
+/*待填写的新闻数据*/
+.news-data>div{
+    margin: 2%;
+    position: relative;
+    display: none;
+}
+.news-data>div.active{
+    display: block;
+}
+.news-data>div>p{
+    color: #999;
+    margin-bottom: 1%;
+}
+
+.news-data>div>input{
+    width: 85%;
+    height: 35px;
+    border: 2px solid #cdcdcd;
+    border-radius: 6px;
+    text-indent: 4px;
+    box-shadow: 0px 0px 6px 1px #cdcdcd;
+}
+
+.news-data>div>.disable{
+    width: 100%;
+    box-shadow: 0px 0px 6px 1px #fee4e4;
+}
+.news-data>div>input~a{
+    margin-right: 7px;
+    display: inline-block;
+    background: #8991f2;
+    width: 74px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    height: 38px;
+    float: right;
+    line-height: 38px;
+    margin-bottom: 2%;;
+}
+
+.news-data>div>a>input[type='file']{
+    left: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 0;
+    position: absolute;
+
+}
+
+.news-data>div>a{
+    position: relative;
+    left: 0;
+    z-index: 2;
+    display: inline-block;
+    background: #369;
+    color: #fff;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+/*文本输入框盒子*/
+
+.textarea{
+    text-indent: 4px;
+    padding-bottom: 39px;
+    background: #b0d4ec;
+    border-radius: 10px;
+    position: relative;
+
+}
+.textarea textarea{
+    width: 98%;
+    height: 80px;
+    margin-top: 2%;
+    border: 1px dashed #369;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.textarea span{
+    position: absolute;
+    width: 200px;
+    right: -99px;
+    bottom: 11px;
+    color: #2b59a0;
+    font-weight: 549;
+}
+
+/*发布页底部*/
+.news-under div>a{
+    display: inline-block;
+    background: #b0cbf4;
+    color: #fff;
+    width: 65px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 2%;
+}
+
+.news-under>div>span{
+    margin-left: 2%;
+    color: #999;
+}
+.news-under div>a.active{
+    background: #369;
+}
+
+.news-under .under-btn{
+    position: relative;
+    height: 90px;
+}
+
+.news-under .under-btn a{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.news-under .under-btn a:first-child{
+    right: 78px;
+    background: none;
+    color: #369;
+}

@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 12px;
+    background: #b0b0b0;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*清除浮动*/
+.clearfix{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*顶部*/
+.nav{
+    position: relative;
+    width: 100%;
+}
+.bar{
+    width: 100%;
+    height: 50px;
+    background: #333333;
+    color: #ddd;
+    text-align: center;
+}
+
+.bar form{
+    line-height: 50px;
+    font-size: 22px;
+    width: 80%;
+}
+.bar form label{
+    float: left;
+    cursor: pointer;
+    margin-left: 33%;
+}
+.bar form input{
+    height: 26px;
+    float: right;
+    width: 35%;
+    margin-top: 10px;
+    margin-right: 10%;
+    border-radius: 8px;
+    text-indent: 10px;
+    box-shadow: 1px 1px 2px 1px #8f8f8f;
+}
+
+/*内容部分*/
+
+.content{
+
+}
+
+/*任务*/
+.project{
+    margin-left: 25%;
+    font-size: 24px;
+    border: 2px solid #88bef8;
+    width: 100px;
+    border-radius: 2px;
+    margin-top: 2%;
+    color: #fff;
+    background: #4dd4f269;
+    line-height: 50px;
+    border-left: 5px solid #7e7b89;
+}
+
+
+
+/*待办列表*/
+.doing{
+    position: relative;
+}
+
+/*已做完列表 */
+.end{
+    position: relative;
+}
+
+/*任务数目*/
+
+#todocount,#endcount{
+    margin-left: 37%;
+    font-size: 20px;
+    border: 2px solid #cce2fa;
+    padding: 2px;
+    border-radius: 20px;
+    margin-top: 1%;
+    color: #fff;
+    background: #f1f2f469;
+    line-height: 22px;
+    height: 21px;
+    position: absolute;
+    text-align: center;
+}
+
+
+.todolist li,.endlist li{
+    text-align: center;
+    width: 44%;
+    font-size: 14px;
+    border: 1px solid #c1e1e8;
+    margin-left: 26%;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 4px;
+    background: #fffdfd;
+    margin-bottom: 4px;
+    height: 20px;
+}
+.todolist li{
+
+    border-left: 4px solid #e709ea;
+}
+.endlist li{
+    border-left: 4px solid #0982ea;
+}
+
+/*事项列表*/
+.todolist li p,.todolist li input,.endlist li p,.endlist li input{
+    float: left;
+}
+
+.todolist li p,.endlist li p{
+    margin-left: 1%;
+}
+.todolist li a,.endlist li a{
+    float: right;
+    color: #f8f2f2;
+    background: #cdcdcd;
+    border: 1px solid #cdcdcd;
+    width: 22px;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: -1px;
+}
+
+/*事项文字*/
+.words{
+    text-indent: 6px;
+    line-height: 20px;
+}
+
+/*底部*/
+.footer{
+    text-align: center;
+}
+
+/*input标签*/
+input[type='button']{
+    border: none;
+    color: #726a6a;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type='checkbox']{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/*通用盒子模型*/
+.box{
+    width: 1220px;
+    margin: 2% auto;
+}

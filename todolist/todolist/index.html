@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist作业</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="bar">
+            <!--表单回车不提交-->
+            <!--  "  -->
+            <form onkeydown="if(event.keyCode==13)return false;" id = 'form'>
+                <label for='text'>ToDoList</label>
+                <input id='text' name = 'text' placeholder="添加todo" required="required" autocomplete="off">
+            </form>
+        </div>
+        <div class="content box">
+            <div class="doing">
+                <span class="project">正在进行</span>
+                <span id="todocount">0</span>
+                <!--这里用ol和ul效果都一样-->
+                <ul class="todolist">
+                    <!--<li></li>-->
+                </ul>
+            </div>
+            <div class="end">
+                <span class="project">已经完成</span>
+                <span id="endcount">0</span>
+                <ul class='endlist'>
+
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer box">
+            <span>Copyright © 2018 todolist <input id="clear" type="button" value="clear"></span>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="./js/js.js"></script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付宝电脑端支付-话费充值</title>
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="money">金额：</label>
+    <input type="text" placeholder="请输入充值金额" id="money" name="money">
+    <label for="phone">号码：</label>
+    <input type="text" value="18311111111" id="phone" name="phone">
+    <input type="submit" value="立即支付宝充值">
+</form>
+</body>
+</html>

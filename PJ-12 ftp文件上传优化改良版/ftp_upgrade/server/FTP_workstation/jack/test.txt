@@ -1,0 +1,7 @@
+someone
+system
+os
+list
+type
+tuple
+this is test

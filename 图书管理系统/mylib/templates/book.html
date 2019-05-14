@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2>图书管理系统</h2>
+        <hr>
+        <div>
+            <div class="add">
+                <a href="/add" class="btn active btn-primary">添加书籍</a>
+            </div>
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr class="success">
+                        <th>书名</th>
+                        <th>价格</th>
+                        <th>作者</th>
+                        <th>出版日期</th>
+                        <th>出版社</th>
+                        <th>删除操作</th>
+                        <th>修改操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for line in data %}
+                    <tr>
+                        <td>{{ line.title }}</td>
+                        <td>{{ line.price }}</td>
+                        <td><a href="/athor/{{ line.athor }}">{{ line.athor }}</a></td>
+                        <td>{{ line.pub_date|date:"Y-m-d"}}</td>
+                        <td><a href="/publish/{{ line.publish }}">{{ line.publish }}</a></td>
+                        <td><a href='/book/{{line.id}}/delete' class="btn btn-danger">删除</a></td>
+                        <td><a href='/book/{{line.id}}/update' class="btn btn-info">编辑</a></td>
+
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="/static/jquery-3.3.1.min.js"></script>
+{#<script type="text/javascript">#}
+{#    for(let i=0;i<$('.update').length;i++){#}
+{#        $($('.update')[i]).click(function () {#}
+            {#console.log($('.update').parent().parent()[i].firstElementChild);#}
+            {#console.log($(this).parent().parent());#}
+{#            var data = {#}
+{#                'id':$('.update').parent().parent()[i].firstElementChild#}
+{#            };#}
+{#            $.ajax({#}
+{#                url:'127.0.0.1:8000/update',#}
+{#                type:'POST',#}
+{#                data:data,#}
+{#                success: function(data){#}
+{#                    data = JSON.parse(data);#}
+{#                    console.log(data);#}
+{#                },#}
+{#                error:function(data){#}
+{#                    console.log(data);#}
+{#                }#}
+{##}
+{#            })#}
+{#        })#}
+{#    }#}
+{##}
+{#</script>#}
+</html>

@@ -1,0 +1,5 @@
+{
+  "jack":{"password":"123456","level":"1","quota":524288000,"home":"jack"},
+  "zaki":{"password":"111111","level":"1","quota":214288250,"home":"zaki"},
+  "nero":{"password":"222222","level":"1","quota":1024000,"home":"nero"}
+}
